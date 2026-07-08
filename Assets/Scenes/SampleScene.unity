@@ -537,6 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   rb: {fileID: 1195578256}
+  spriteRenderer: {fileID: 1195578253}
 --- !u!114 &1195578259
 MonoBehaviour:
   m_ObjectHideFlags: 0
