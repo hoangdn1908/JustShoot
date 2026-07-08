@@ -3,7 +3,6 @@ using UnityEngine;
 public class GunAim : MonoBehaviour
 {
     private Camera cam;
-    [SerializeField] private SpriteRenderer sprite;
 
     void Awake()
     {
@@ -27,9 +26,13 @@ public class GunAim : MonoBehaviour
 
     private void FlipWeapon(Vector3 mousePos) 
     {
-        if (mousePos.x < transform.position.x)
-            sprite.flipY = true;
+        if (mousePos.x < 0)
+        {
+            transform.localScale = new Vector3(1, -1, 1);
+        }
         else
-            sprite.flipY = false;
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 }
