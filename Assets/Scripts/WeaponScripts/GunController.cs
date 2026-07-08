@@ -12,10 +12,14 @@ public class GunController : MonoBehaviour
 
     private void Fire() 
     {
+        if (Input.GetMouseButtonUp(0)) 
+        {
+            animator.SetBool("isFiring", false);
+            return;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetBool("isFiring", true);
         }
-        else if (Input.GetMouseButtonUp(0)) animator.SetBool("isFiring", false);
     }
 }
