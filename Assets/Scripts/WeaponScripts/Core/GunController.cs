@@ -7,16 +7,24 @@ public class GunController : MonoBehaviour
 
     private void Update()
     {
-        Fire();
+        HandleInput();
     }
 
-    public virtual void Fire() 
+    public virtual void Fire() { }
+
+    private void HandleInput() 
     {
-        if (Input.GetMouseButtonUp(0)) 
+        if (Input.GetMouseButtonUp(0))
         {
             PlayFireAnimation(false);
             return;
         }
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlayFireAnimation(true);
+            Fire();
+        }
+
     }
 
     public void PlayFireAnimation(bool value) 
