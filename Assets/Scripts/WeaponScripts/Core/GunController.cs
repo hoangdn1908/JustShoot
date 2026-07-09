@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    public Transform firePos;
+    public BulletController bulletPrefabs;
     public Animator animator;
 
     private void Update()
@@ -30,5 +32,12 @@ public class GunController : MonoBehaviour
     public void PlayFireAnimation(bool value) 
     {
         animator.SetBool("isFired", value);
+    }
+
+    public Vector2 GetShootDirection() 
+    {
+        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouse.z = 0;
+        return (mouse - firePos.position).normalized;
     }
 }
