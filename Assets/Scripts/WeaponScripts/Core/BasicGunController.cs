@@ -4,7 +4,10 @@ public class BasicGunController : GunController
 {
     public override void Fire()
     {
-        BulletController bullet = bulletPool.GetFromPool().GetComponent<BulletController>();
+        GameObject bulletObj = bulletPool.GetFromPool();
+        bulletObj.transform.position = firePos.position;
+        bulletObj.transform.rotation = firePos.rotation;
+        BulletController bullet = bulletObj.GetComponent<BulletController>();
         bullet.Fire(GetShootDirection());
     }
 }
