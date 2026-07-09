@@ -3,23 +3,24 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    public Animator animator;
 
     private void Update()
     {
         Fire();
     }
 
-    private void Fire() 
+    public virtual void Fire() 
     {
         if (Input.GetMouseButtonUp(0)) 
         {
-            animator.SetBool("isFiring", false);
+            PlayFireAnimation(false);
             return;
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            animator.SetBool("isFiring", true);
-        }
+    }
+
+    public void PlayFireAnimation(bool value) 
+    {
+        animator.SetBool("isFiring", value);
     }
 }
