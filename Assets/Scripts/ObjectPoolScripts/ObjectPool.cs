@@ -46,6 +46,6 @@ public class ObjectPool : MonoBehaviour
         obj.transform.SetParent(transform, true);
         obj.SetActive(false);
         pool.Enqueue(obj);
-        poolObjects.Remove(obj);
+        poolObjects.Add(obj);
     }
 }
