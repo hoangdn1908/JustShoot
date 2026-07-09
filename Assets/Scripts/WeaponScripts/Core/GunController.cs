@@ -40,4 +40,10 @@ public class GunController : MonoBehaviour
         mouse.z = 0;
         return (mouse - firePos.position).normalized;
     }
+
+    public void SetFirePos(GameObject bulletObj) 
+    {
+        bulletObj.transform.position = firePos.position;
+        bulletObj.transform.rotation = firePos.rotation;
+    }
 }
