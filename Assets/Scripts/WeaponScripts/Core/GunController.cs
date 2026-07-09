@@ -21,6 +21,6 @@ public class GunController : MonoBehaviour
 
     public void PlayFireAnimation(bool value) 
     {
-        animator.SetBool("isFiring", value);
+        animator.SetBool("isFired", value);
     }
 }
