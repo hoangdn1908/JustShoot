@@ -4,7 +4,7 @@ public class BasicGunController : GunController
 {
     public override void Fire()
     {
-        BulletController bullet = Instantiate(bulletPrefabs, firePos.position, Quaternion.identity);
+        BulletController bullet = bulletPool.GetFromPool().GetComponent<BulletController>();
         bullet.Fire(GetShootDirection());
     }
 }

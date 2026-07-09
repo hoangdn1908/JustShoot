@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    public ObjectPool bulletPool;
     public Transform firePos;
-    public BulletController bulletPrefabs;
     public Animator animator;
 
     private void Update()

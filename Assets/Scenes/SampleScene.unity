@@ -151,6 +151,52 @@ Transform:
   - {fileID: 444283716}
   m_Father: {fileID: 1195578254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &220591856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 220591857}
+  - component: {fileID: 220591858}
+  m_Layer: 0
+  m_Name: BulletPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &220591857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220591856}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 444283716}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &220591858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220591856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3084c668dc3a747935e88d834457f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
+  prefabs: {fileID: 1434716380709331445, guid: e788c8ff0cd1ea5469f9c92ee266f140, type: 3}
+  poolSize: 10
 --- !u!1 &444283715
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +231,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 643190135}
+  - {fileID: 220591857}
   m_Father: {fileID: 128514595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &444283717
@@ -292,8 +339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5a7e6b7a2567e40a83e745a33df5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicGunController
+  bulletPool: {fileID: 0}
   firePos: {fileID: 643190135}
-  bulletPrefabs: {fileID: 3033820919414928049, guid: e788c8ff0cd1ea5469f9c92ee266f140, type: 3}
   animator: {fileID: 444283721}
 --- !u!1 &519420028
 GameObject:
