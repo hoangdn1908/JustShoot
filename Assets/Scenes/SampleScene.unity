@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
   prefabs: {fileID: 1434716380709331445, guid: e788c8ff0cd1ea5469f9c92ee266f140, type: 3}
-  poolSize: 10
+  poolSize: 15
 --- !u!1 &444283715
 GameObject:
   m_ObjectHideFlags: 0

@@ -170,4 +170,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletController
   speed: 20
+  timeLife: 3
   rb: {fileID: 7048206596988050240}

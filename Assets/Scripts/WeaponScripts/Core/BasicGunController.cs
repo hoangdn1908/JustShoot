@@ -8,6 +8,7 @@ public class BasicGunController : GunController
         bulletObj.transform.position = firePos.position;
         bulletObj.transform.rotation = firePos.rotation;
         BulletController bullet = bulletObj.GetComponent<BulletController>();
+        bullet.SetPool(bulletPool);
         bullet.Fire(GetShootDirection());
     }
 }
