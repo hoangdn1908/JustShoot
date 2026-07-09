@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &19320643 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8527641932110492305, guid: d0005720e2cd25543a0e684821689f98, type: 3}
+  m_PrefabInstance: {fileID: 6792024264751652683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &128514594
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +158,17 @@ Transform:
   - {fileID: 2060992744}
   m_Father: {fileID: 1195578254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &322807843 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3747456053387034140, guid: d0005720e2cd25543a0e684821689f98, type: 3}
+  m_PrefabInstance: {fileID: 6792024264751652683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3084c668dc3a747935e88d834457f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
 --- !u!4 &444283716 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8927475980669260756, guid: 542cb0935e794bf41aed82df60285ec7, type: 3}
@@ -621,6 +637,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimation
   animator: {fileID: 1195578257}
+--- !u!95 &2060992742 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2860394651207733332, guid: d0005720e2cd25543a0e684821689f98, type: 3}
+  m_PrefabInstance: {fileID: 6792024264751652683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2060992744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2025654212035306569, guid: d0005720e2cd25543a0e684821689f98, type: 3}
@@ -800,6 +821,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6752691281628590552, guid: d0005720e2cd25543a0e684821689f98, type: 3}
+      propertyPath: firePos
+      value: 
+      objectReference: {fileID: 19320643}
+    - target: {fileID: 6752691281628590552, guid: d0005720e2cd25543a0e684821689f98, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2060992742}
+    - target: {fileID: 6752691281628590552, guid: d0005720e2cd25543a0e684821689f98, type: 3}
+      propertyPath: bulletPool
+      value: 
+      objectReference: {fileID: 322807843}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

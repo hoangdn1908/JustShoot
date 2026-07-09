@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2025654212035306569}
   - component: {fileID: 691125005485343051}
   - component: {fileID: 2860394651207733332}
-  - component: {fileID: 1007120080472316109}
   - component: {fileID: 2629512076606532390}
+  - component: {fileID: 6752691281628590552}
   m_Layer: 0
   m_Name: Gun3
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212450779208654633}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.09, y: 0.029999971, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -118,21 +118,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1007120080472316109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1212450779208654633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d5a7e6b7a2567e40a83e745a33df5e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicGunController
-  bulletPool: {fileID: 3747456053387034140}
-  firePos: {fileID: 8527641932110492305}
-  animator: {fileID: 2860394651207733332}
 --- !u!114 &2629512076606532390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +130,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e657f740fc056194c9f43113e4ee907e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunAim
+--- !u!114 &6752691281628590552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212450779208654633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a03b99ae367874d84d310b2220d1b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShotgunController
+  bulletPool: {fileID: 0}
+  firePos: {fileID: 0}
+  animator: {fileID: 0}
+  spreadAngle: 10
 --- !u!1 &1661697503249336911
 GameObject:
   m_ObjectHideFlags: 0
