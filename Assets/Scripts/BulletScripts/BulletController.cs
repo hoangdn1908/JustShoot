@@ -32,7 +32,7 @@ public class BulletController : MonoBehaviour
         }
     }
 
-    private void ReturnToPool() 
+    public void ReturnToPool() 
     {
         timer = 0;
         rb.linearVelocity = Vector2.zero;
