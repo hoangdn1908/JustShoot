@@ -1,4 +1,3 @@
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
@@ -14,6 +13,7 @@ public class GunController : MonoBehaviour
 
     private void Update()
     {
+        if (gunInput == null) return;
         gunInput.ReadInput();
         HandleInput();
     }
@@ -24,15 +24,16 @@ public class GunController : MonoBehaviour
     {
         if (gunInput.FireReleased)
         {
-            gunAnimation.SetGunAnimation(false);
+            if (gunAnimation != null)
+                gunAnimation.SetGunAnimation(false);
             return;
         }
         if (gunInput.FirePressed)
         {
-            gunAnimation.SetGunAnimation(true);
+            if (gunAnimation != null)
+                gunAnimation.SetGunAnimation(true);
             Fire();
         }
-
     }
 
     private void InitializeComponent() 

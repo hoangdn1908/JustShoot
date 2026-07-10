@@ -6,6 +6,7 @@ public class GunAnimation : MonoBehaviour
 
     public void SetGunAnimation(bool value) 
     {
+        if (animator == null) return;
         animator.SetBool("isFired", value);
     }
 }
