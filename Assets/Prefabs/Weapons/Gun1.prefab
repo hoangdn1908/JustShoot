@@ -12,14 +12,17 @@ GameObject:
   - component: {fileID: 1234755338137996618}
   - component: {fileID: 9160982464852096000}
   - component: {fileID: 5722578870138645075}
-  - component: {fileID: 6684071000059240389}
+  - component: {fileID: 648295768998613727}
+  - component: {fileID: 2093207554056118944}
+  - component: {fileID: 7894545272553927581}
+  - component: {fileID: 5813182197144212031}
   m_Layer: 0
   m_Name: Gun1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8927475980669260756
 Transform:
   m_ObjectHideFlags: 0
@@ -28,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2868728513494388368}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -130,7 +133,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e657f740fc056194c9f43113e4ee907e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunAim
---- !u!114 &6684071000059240389
+--- !u!114 &648295768998613727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2868728513494388368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d4b55f1dd357a4da48f635d574ee76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunAnimation
+  animator: {fileID: 9160982464852096000}
+--- !u!114 &2093207554056118944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2868728513494388368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf2c6faf65368e42b153c63fb32eab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunInput
+--- !u!114 &7894545272553927581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2868728513494388368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b0200361d43db4ebe17e84650eb0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunShoot
+  bulletPool: {fileID: 1617164051677929193}
+  firePos: {fileID: 7363452039529868521}
+--- !u!114 &5813182197144212031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,9 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5a7e6b7a2567e40a83e745a33df5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicGunController
-  bulletPool: {fileID: 1617164051677929193}
-  firePos: {fileID: 7363452039529868521}
-  animator: {fileID: 9160982464852096000}
 --- !u!1 &3894679692711792043
 GameObject:
   m_ObjectHideFlags: 0

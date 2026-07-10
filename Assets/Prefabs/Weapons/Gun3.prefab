@@ -12,7 +12,10 @@ GameObject:
   - component: {fileID: 691125005485343051}
   - component: {fileID: 2860394651207733332}
   - component: {fileID: 2629512076606532390}
-  - component: {fileID: 6752691281628590552}
+  - component: {fileID: 1276080138110887786}
+  - component: {fileID: 8873095083555986816}
+  - component: {fileID: 4392747796698800283}
+  - component: {fileID: 963542753434197937}
   m_Layer: 0
   m_Name: Gun3
   m_TagString: Untagged
@@ -130,7 +133,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e657f740fc056194c9f43113e4ee907e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunAim
---- !u!114 &6752691281628590552
+--- !u!114 &1276080138110887786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212450779208654633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d4b55f1dd357a4da48f635d574ee76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunAnimation
+  animator: {fileID: 2860394651207733332}
+--- !u!114 &8873095083555986816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212450779208654633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf2c6faf65368e42b153c63fb32eab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunInput
+--- !u!114 &4392747796698800283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212450779208654633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b0200361d43db4ebe17e84650eb0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunShoot
+  bulletPool: {fileID: 3747456053387034140}
+  firePos: {fileID: 8527641932110492305}
+--- !u!114 &963542753434197937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,9 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a03b99ae367874d84d310b2220d1b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShotgunController
-  bulletPool: {fileID: 0}
-  firePos: {fileID: 0}
-  animator: {fileID: 0}
   spreadAngle: 10
 --- !u!1 &1661697503249336911
 GameObject:
