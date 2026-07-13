@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public EnemyData EnemyData;
+    public ObjectPool ObjectPool {  get; private set; }
 
     #region Component
     public EnemyMovement enemyMovement {  get; private set; }
@@ -21,11 +22,6 @@ public class EnemyController : MonoBehaviour
     {
         InitializeComponent();
         InitializeStateMachine();
-    }
-
-    private void Start()
-    {
-        InitializeState();   
     }
 
     private void Update()
@@ -52,11 +48,6 @@ public class EnemyController : MonoBehaviour
         enemyDeathState = new EnemyDeathState(this, enemyStateMachine);
     }
 
-    private void InitializeState() 
-    {
-        enemyStateMachine.InitializeState(enemyChaseState);
-    }
-
     private void UpdateStateLogic() 
     {
         enemyStateMachine.currentState.LogicUpdate();
@@ -65,5 +56,15 @@ public class EnemyController : MonoBehaviour
     private void UpdateStatePhysics() 
     {
         enemyStateMachine.currentState.PhysicsUpdate();
+    }
+
+    public void PrepareForSpawn(ObjectPool pool, Transform target)
+    {
+        StopAllCoroutines();
+        ObjectPool = pool;
+        enemyHealth.SetCurrentHealth();
+        enemyMovement.SetTarget(target);
+        animator.SetBool("isDeath", false);
+        enemyStateMachine.InitializeState(enemyChaseState);
     }
 }

@@ -8,10 +8,9 @@ public class EnemyHealth : MonoBehaviour
     private void Awake()
     {
         enemyController = GetComponent<EnemyController>();
-        SetCurrentHealth();
     }
 
-    private void SetCurrentHealth()
+    public void SetCurrentHealth()
     {
         currentHealth = enemyController.EnemyData.maxHealth;
     }

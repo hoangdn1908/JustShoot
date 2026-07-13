@@ -4,7 +4,12 @@ using UnityEngine.Rendering;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform target;
+    private Transform target;
+
+    public void SetTarget(Transform target) 
+    {
+        this.target = target;
+    }
 
     public void MoveToTarget(float speed) 
     {
