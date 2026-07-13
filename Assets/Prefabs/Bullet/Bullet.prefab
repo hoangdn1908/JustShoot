@@ -187,3 +187,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletCollision
   bulletController: {fileID: 3033820919414928049}
+  damage: 5
