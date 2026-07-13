@@ -7,11 +7,13 @@ public class EnemyController : MonoBehaviour
     #region Component
     public EnemyMovement enemyMovement {  get; private set; }
     public Animator animator { get; private set; }
+    public EnemyHealth enemyHealth { get; private set; }
     #endregion
 
     #region State machine
     public EnemyStateMachine enemyStateMachine { get; private set; }
     public EnemyChaseState enemyChaseState { get; private set; }
+    public EnemyDeathState enemyDeathState { get; private set; }
     #endregion
 
     private void Awake()
@@ -39,12 +41,14 @@ public class EnemyController : MonoBehaviour
     {
         enemyMovement = GetComponent<EnemyMovement>();
         animator = GetComponent<Animator>();
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     private void InitializeStateMachine() 
     {
         enemyStateMachine = new EnemyStateMachine();
         enemyChaseState = new EnemyChaseState(this, enemyStateMachine);
+        enemyDeathState = new EnemyDeathState(this, enemyStateMachine);
     }
 
     private void InitializeState() 

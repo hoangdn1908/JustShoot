@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Purple
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   moveSpeed: 5
+  maxHealth: 10

@@ -5,4 +5,5 @@ using UnityEngine.Rendering;
 public class EnemyData : ScriptableObject
 {
     public float moveSpeed;
+    public float maxHealth;
 }

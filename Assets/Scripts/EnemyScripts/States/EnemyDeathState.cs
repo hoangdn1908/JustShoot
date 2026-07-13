@@ -1,16 +1,33 @@
+using System.Collections;
 using UnityEngine;
 
-public class EnemyDeathState : MonoBehaviour
+public class EnemyDeathState : EnemyBaseState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public EnemyDeathState(EnemyController enemyController, EnemyStateMachine enemyStateMachine) : base(enemyController, enemyStateMachine)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+        StopMovement();
+        PlayDeathAnimation();
+        enemyController.StartCoroutine(DisableAfterDelay());
+    }
+
+    private void StopMovement() 
+    {
+        enemyController.enemyMovement.Stop();
+    }
+
+    private void PlayDeathAnimation() 
+    {
+        enemyController.animator.SetBool("isDeath", true);
+    }
+
+    private IEnumerator DisableAfterDelay()
+    {
+        yield return new WaitForSeconds(0.32f);
+        enemyController.gameObject.SetActive(false);
     }
 }

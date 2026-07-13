@@ -9,7 +9,7 @@ public class EnemyChaseState : EnemyBaseState
 
     public override void LogicUpdate()
     {
-        
+        CheckDeathState();
     }
 
     public override void PhysicsUpdate()
@@ -20,5 +20,13 @@ public class EnemyChaseState : EnemyBaseState
     private void MoveToTarget() 
     {
         enemyController.enemyMovement.MoveToTarget(enemyController.EnemyData.moveSpeed);
+    }
+
+    private void CheckDeathState() 
+    {
+        if (!enemyController.enemyHealth.IsAlive()) 
+        {
+            enemyStateMachine.ChangeState(enemyController.enemyDeathState);
+        }
     }
 }
