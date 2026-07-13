@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyMovement), typeof(EnemyHealth))]
 public class EnemyController : MonoBehaviour
 {
     public EnemyData EnemyData;
