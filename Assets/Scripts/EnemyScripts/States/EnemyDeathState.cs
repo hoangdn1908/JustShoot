@@ -27,7 +27,7 @@ public class EnemyDeathState : EnemyBaseState
 
     private IEnumerator DisableAfterDelay()
     {
-        yield return new WaitForSeconds(0.32f);
+        yield return new WaitForSeconds(0.35f);
         enemyController.gameObject.SetActive(false);
     }
 }
