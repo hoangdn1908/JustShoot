@@ -12,6 +12,11 @@ public class PlayerWalkState : PlayerBaseState
         PlayWalkAnimation();
     }
 
+    public override void LogicUpdate()
+    {
+        CheckDeathState();
+    }
+
     public override void PhysicUpdate()
     {
         MovePlayer();
@@ -37,6 +42,14 @@ public class PlayerWalkState : PlayerBaseState
         if (!playerController.playerInput.HasMoveInput())
         {
             playerStateMachine.ChangeState(playerController.playerIdleState);
+        }
+    }
+
+    private void CheckDeathState()
+    {
+        if (!playerController.playerHealth.IsAlive())
+        {
+            playerStateMachine.ChangeState(playerController.playerDeathState);
         }
     }
 }

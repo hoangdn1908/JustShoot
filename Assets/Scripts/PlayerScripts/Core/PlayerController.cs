@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerHealth), typeof(PlayerInput), typeof(PlayerMovement))]
 public class PlayerController : MonoBehaviour
 {
     public PlayerData playerData;
@@ -8,12 +9,14 @@ public class PlayerController : MonoBehaviour
     public PlayerInput playerInput {  get; private set; }
     public PlayerMovement playerMovement { get; private set; }
     public PlayerAnimation playerAnimation { get; private set; }
+    public PlayerHealth playerHealth { get; private set; }
     #endregion
 
     #region State Machine
     public PlayerStateMachine playerStateMachine { get; private set; }
     public PlayerIdleState playerIdleState { get; private set; }
     public PlayerWalkState playerWalkState { get; private set; }
+    public PlayerDeathState playerDeathState { get; private set; }
     #endregion
 
     private void Awake()
@@ -29,8 +32,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        UpdateStateLogic();
         HandleInput();
+        UpdateStateLogic();
     }
 
     private void FixedUpdate()
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerMovement = GetComponent<PlayerMovement>();
         playerAnimation = GetComponent<PlayerAnimation>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     private void InitializeState() 
@@ -50,6 +54,7 @@ public class PlayerController : MonoBehaviour
         playerStateMachine = new PlayerStateMachine();
         playerIdleState = new PlayerIdleState(this, playerStateMachine);
         playerWalkState = new PlayerWalkState(this, playerStateMachine);
+        playerDeathState = new PlayerDeathState(this, playerStateMachine);
     }
 
     private void InitializeIdleState() 
@@ -64,8 +69,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleInput() 
     {
-        playerStateMachine.currentState.HandleInput();
         playerInput.ReadInput();
+        playerStateMachine.currentState.HandleInput();
     }
 
     private void UpdateStatePhysic() 

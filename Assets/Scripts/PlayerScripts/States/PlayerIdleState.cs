@@ -13,6 +13,11 @@ public class PlayerIdleState : PlayerBaseState
         PlayIdleAnimation();
     }
 
+    public override void LogicUpdate()
+    {
+        CheckDeathState();
+    }
+
     public override void HandleInput()
     {
         ChecMoveInput();
@@ -33,6 +38,14 @@ public class PlayerIdleState : PlayerBaseState
         if (playerController.playerInput.HasMoveInput()) 
         {
             playerStateMachine.ChangeState(playerController.playerWalkState);
+        }
+    }
+
+    private void CheckDeathState() 
+    {
+        if (!playerController.playerHealth.IsAlive()) 
+        {
+            playerStateMachine.ChangeState(playerController.playerDeathState);
         }
     }
 }
