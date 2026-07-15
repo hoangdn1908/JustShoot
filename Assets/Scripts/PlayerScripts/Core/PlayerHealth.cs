@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
+    public static Action<float, float> OnHealthChanged;
     private PlayerController playerController;
     private float currentHealth;
 
@@ -21,10 +23,16 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (!IsAlive()) return;
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
+        SetHealthChanged();
     }
 
     public bool IsAlive() 
     {
         return currentHealth > 0;
     }
+    private void SetHealthChanged()
+    {
+        OnHealthChanged?.Invoke(currentHealth, playerController.playerData.maxHealth);
+    }
+
 }
