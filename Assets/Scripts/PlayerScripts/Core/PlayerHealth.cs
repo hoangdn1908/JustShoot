@@ -19,7 +19,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void TakeDamage(float damage) 
     {
         if (!IsAlive()) return;
-
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
     }
