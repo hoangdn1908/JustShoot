@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
     private EnemyController enemyController;
     private float currentHealth;
@@ -17,6 +17,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (!IsAlive()) return;
+
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
     }

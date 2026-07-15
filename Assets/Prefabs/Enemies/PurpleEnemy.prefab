@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 804828609622447633}
   - component: {fileID: 4886934863225339747}
   - component: {fileID: 7125983045509660416}
+  - component: {fileID: -5224521398332461838}
   m_Layer: 0
   m_Name: PurpleEnemy
   m_TagString: Enemy
@@ -209,7 +210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   rb: {fileID: 6271623617414746080}
-  target: {fileID: 0}
 --- !u!114 &7125983045509660416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,3 +222,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034a59f451eaa5f4581ad90cd8e30dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+--- !u!114 &-5224521398332461838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465208596748547493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d889751e0933e44ba870166371395f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCollision

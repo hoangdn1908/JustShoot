@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5679029623342779798}
   - component: {fileID: 3204725813585406519}
   - component: {fileID: 6344487084112145161}
+  - component: {fileID: -4796611161444706442}
   m_Layer: 0
   m_Name: GreenEnemy
   m_TagString: Enemy
@@ -196,7 +197,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   rb: {fileID: 5493552099891546863}
-  target: {fileID: 0}
 --- !u!114 &3204725813585406519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,3 +222,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   EnemyData: {fileID: 11400000, guid: eecf34c5a74ac2d4dab9503dbfb8037f, type: 2}
+--- !u!114 &-4796611161444706442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419278765990571283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d889751e0933e44ba870166371395f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCollision

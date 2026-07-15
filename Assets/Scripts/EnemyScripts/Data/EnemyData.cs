@@ -6,4 +6,5 @@ public class EnemyData : ScriptableObject
 {
     public float moveSpeed;
     public float maxHealth;
+    public float damage;
 }
