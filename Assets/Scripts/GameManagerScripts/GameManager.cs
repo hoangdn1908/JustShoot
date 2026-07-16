@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     }
     private void SetSingleTon()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
     }
 
