@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
     [SerializeField] private float timeLife;
     [SerializeField] private Rigidbody2D rb;
     private ObjectPool pool;
     private float timer;
+    private float speed;
 
     private void Update()
     {
         CheckLiveTime();
+    }
+
+    public void SetSpeed(float speed) 
+    {
+        this.speed = speed;
     }
 
     public void SetPool(ObjectPool pool) 

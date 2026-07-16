@@ -1,7 +1,9 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class GunShoot : MonoBehaviour
 {
+    [SerializeField] private float bulletSpeed;
     public ObjectPool bulletPool;
     public Transform firePos;
     private Camera mainCamera;
@@ -35,6 +37,7 @@ public class GunShoot : MonoBehaviour
         BulletController bullet = bulletPool.GetFromPool().GetComponent<BulletController>();
         if (bullet == null) return;
         SetFireTransform(bullet);
+        bullet.SetSpeed(bulletSpeed);
         bullet.SetPool(bulletPool);
         bullet.Fire(direction);
     }
