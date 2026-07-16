@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
     public static Action<float, float> OnHealthChanged;
+    public static Action OnPlayerDied;
     private PlayerController playerController;
     private float currentHealth;
 
@@ -24,6 +25,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
         SetHealthChanged();
+        ListenPlayerDied();
     }
 
     public bool IsAlive() 
@@ -33,6 +35,14 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void SetHealthChanged()
     {
         OnHealthChanged?.Invoke(currentHealth, playerController.playerData.maxHealth);
+    }
+
+    private void ListenPlayerDied() 
+    {
+        if (!IsAlive()) 
+        {
+            OnPlayerDied?.Invoke();
+        }
     }
 
 }
