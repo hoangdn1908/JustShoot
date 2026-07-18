@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     private void EnterLoseState()
     {
+        CompleteLevel();
         StartCoroutine(DelayLoseState());
     }
 
@@ -101,4 +102,10 @@ public class GameManager : MonoBehaviour
         ChangeGameState(GameStates.Lose);
     }
     #endregion
+
+    private void CompleteLevel()
+    {
+        int earnedCoin = LevelCoinManager.Instance.CurrentLevelCoin;
+        PlayerWalletController.Instance.AddCoin(earnedCoin);
+    }
 }
