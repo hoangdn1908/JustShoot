@@ -1,8 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
 
-public class CoinUiManager : MonoBehaviour
+public class LevelCoinUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI coinText;
     private void OnEnable()
@@ -20,9 +19,8 @@ public class CoinUiManager : MonoBehaviour
         LevelCoinManager.OnLevelCoinChanged -= UpdateUI;
     }
 
-    public void UpdateUI(int coinCount)
+    private void UpdateUI(int coinCount)
     {
         coinText.text = coinCount.ToString();
     }
-
 }

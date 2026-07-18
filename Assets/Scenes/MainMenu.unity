@@ -1730,6 +1730,7 @@ GameObject:
   - component: {fileID: 1017307743}
   - component: {fileID: 1017307745}
   - component: {fileID: 1017307744}
+  - component: {fileID: 1017307746}
   m_Layer: 5
   m_Name: CoinUI
   m_TagString: Untagged
@@ -1796,6 +1797,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017307742}
   m_CullTransparentMesh: 1
+--- !u!114 &1017307746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017307742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f083b891a9d57464498bfe5b540ac91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalletCoinUI
+  coinText: {fileID: 440247969}
 --- !u!1 &1018423662
 GameObject:
   m_ObjectHideFlags: 0
@@ -4184,7 +4198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6b5b74789400147bc3152b09b3b114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWalletController
-  coinText: {fileID: 440247969}
   TotalCoin: 0
 --- !u!1 &2046468180
 GameObject:
