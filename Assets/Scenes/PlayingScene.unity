@@ -1486,6 +1486,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 127541120106728740, guid: b54c5e35b82a83d4b9a877ff0fd66f43, type: 3}
   m_PrefabInstance: {fileID: 372160338}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &399323009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 399323010}
+  - component: {fileID: 399323011}
+  m_Layer: 0
+  m_Name: LevelCoinManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &399323010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399323009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1659.6522, y: 876.08624, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &399323011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399323009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16cc99c2451c6c4c8a8bf4ef77a833a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelCoinManager
 --- !u!1 &426789189
 GameObject:
   m_ObjectHideFlags: 0
@@ -6084,3 +6128,4 @@ SceneRoots:
   - {fileID: 515522494}
   - {fileID: 904316074}
   - {fileID: 909957879}
+  - {fileID: 399323010}

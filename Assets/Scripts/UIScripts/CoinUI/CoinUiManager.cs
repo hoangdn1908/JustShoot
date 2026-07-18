@@ -1,34 +1,28 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class CoinUiManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI coinText;
-    private int coinCount = 0;
-
     private void OnEnable()
     {
-        EnemyHealth.OnEnemyDied += AddCoin;
-    }
-
-    private void OnDisable()
-    {
-        EnemyHealth.OnEnemyDied -= AddCoin;
+        LevelCoinManager.OnLevelCoinChanged += UpdateUI;
     }
 
     private void Start()
     {
-        UpdateUI();
+        UpdateUI(LevelCoinManager.Instance.CurrentLevelCoin);
     }
 
-    public void AddCoin(int amount)
+    private void OnDisable()
     {
-        coinCount += amount;
-        UpdateUI();
+        LevelCoinManager.OnLevelCoinChanged -= UpdateUI;
     }
 
-    private void UpdateUI()
+    public void UpdateUI(int coinCount)
     {
         coinText.text = coinCount.ToString();
     }
+
 }
