@@ -22,13 +22,25 @@ public class CharacterShopUI : MonoBehaviour
         {
             if(characterData == null) continue;
             CharacterShopCardUI newCard = Instantiate(characterCardPrefab, cardContainer);
-            newCard.SetUp(characterData, HandleBuyCharacter);
+            bool isOwned = CharacterOwnerShipController.IsOwned(characterData.characterId);
+            newCard.SetUp(characterData, HandleBuyCharacter, isOwned);
         }
         hasBuiltShop = true;
     }
 
-    private void HandleBuyCharacter(CharacterData characterData) 
+    private void HandleBuyCharacter(CharacterData characterData, CharacterShopCardUI selectedCard) 
     {
-    
+        if (CharacterOwnerShipController.IsOwned(characterData.characterId)) 
+        {
+            selectedCard.SetOwned();
+            return;
+        }
+        if (characterData.price > 0)
+        {
+            bool purchaseSuccessful = PlayerWalletController.Instance.TrySpendCoin(characterData.price);
+            if (!purchaseSuccessful) return;
+        }
+        CharacterOwnerShipController.UnlockCharacter(characterData.characterId);
+        selectedCard.SetOwned();
     }
 }

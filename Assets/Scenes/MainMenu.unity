@@ -203,7 +203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &80549120
 RectTransform:
   m_ObjectHideFlags: 0
@@ -277,8 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756e84433863b448b932a307ceac428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterShopUI
-  characterDatabase: {fileID: 0}
-  characterCardPrefab: {fileID: 5101770220145204517, guid: fd52874d3f71e1b4bbcc0675c3bbe7d7, type: 3}
+  characterDatabase: {fileID: 11400000, guid: 3195192d66791cb46a48a34bfd881017, type: 2}
+  characterCardPrefab: {fileID: 4198020858546216302, guid: fd52874d3f71e1b4bbcc0675c3bbe7d7, type: 3}
   cardContainer: {fileID: 546103802}
 --- !u!1001 &149032268
 PrefabInstance:
@@ -2356,6 +2356,50 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1146477566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1146477568}
+  - component: {fileID: 1146477567}
+  m_Layer: 0
+  m_Name: CharacterOnwerShipController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1146477567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146477566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88935a49ef4e5234da6e42e8989779fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterOwnerShipController
+--- !u!4 &1146477568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146477566}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1182.7349, y: 511.9893, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1165941860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4634,3 +4678,4 @@ SceneRoots:
   - {fileID: 1184896686}
   - {fileID: 1485827347}
   - {fileID: 2028666678}
+  - {fileID: 1146477568}
