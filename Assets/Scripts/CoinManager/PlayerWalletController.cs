@@ -7,7 +7,7 @@ public class PlayerWalletController : MonoBehaviour
     public static event Action<int> OnTotalCoinChanged;
     public static PlayerWalletController Instance { get; private set; }
     private const string TotalCoinKey = "TotalCoin";
-    public int TotalCoin {  get; private set; }
+    public int TotalCoin { get; private set; }
 
     private void Awake()
     {
@@ -38,6 +38,17 @@ public class PlayerWalletController : MonoBehaviour
     {
         PlayerPrefs.SetInt(TotalCoinKey, TotalCoin);
         PlayerPrefs.Save();
+    }
+
+
+    public bool TrySpendCoin(int amount) 
+    {
+        if (amount < 0) return false;
+        if(amount > TotalCoin) return false;
+        TotalCoin -= amount;
+        SaveCoin();
+        OnTotalCoinChanged?.Invoke(TotalCoin);
+        return true;
     }
 
     private void LoadCoin()
