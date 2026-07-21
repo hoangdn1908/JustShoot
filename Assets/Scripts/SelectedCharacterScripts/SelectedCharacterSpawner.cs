@@ -2,21 +2,54 @@ using UnityEngine;
 
 public class SelectedCharacterSpawner : MonoBehaviour
 {
+    public static SelectedCharacterSpawner Instance { get; private set; }
     [SerializeField] private CharacterDatabase characterDatabase;
     [SerializeField] private Transform spawnPos;
+    public Transform SpawnedCharacter { get; private set; }
+    public CharacterData SelectedCharacter { get; private set; }
+
+    private void Awake()
+    {
+        if(!SetSignleton()) return;
+        StoreCharacterData();
+    }
 
     private void Start()
     {
         SpawnCharacter();
     }
 
+    private bool SetSignleton()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return false;
+        }
+        Instance = this;
+        return true;
+    }
+
     private void SpawnCharacter() 
     {
+        if (SelectedCharacter == null) return;
+        if (SelectedCharacter.characterPrefab == null) return;
+        GameObject characterObj = Instantiate(SelectedCharacter.characterPrefab, spawnPos.position, spawnPos.rotation);
+        SpawnedCharacter = characterObj.transform;
+    }
+
+    public CharacterData GetCharacter() 
+    {
         string selectedCharacterId = SelectedCharacterSave.GetSelectedCharacterId();
-        if (string.IsNullOrEmpty(selectedCharacterId)) return;
-        if (!CharacterOwnerShipController.IsOwned(selectedCharacterId)) return;
+        if (string.IsNullOrEmpty(selectedCharacterId)) return null;
+        if (!CharacterOwnerShipController.IsOwned(selectedCharacterId)) return null;
         CharacterData selectedCharacter = characterDatabase.GetCharacterById(selectedCharacterId);
-        if (selectedCharacter == null || selectedCharacter.characterPrefab == null) return;
-        Instantiate(selectedCharacter.characterPrefab, spawnPos.position, spawnPos.rotation);
+        if (selectedCharacter == null) return null;
+        return selectedCharacter;
+    }
+
+    private void StoreCharacterData() 
+    {
+        SelectedCharacter = GetCharacter();
     }
 }
