@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class SelectedCharacterSpawner : MonoBehaviour
@@ -5,6 +6,7 @@ public class SelectedCharacterSpawner : MonoBehaviour
     public static SelectedCharacterSpawner Instance { get; private set; }
     [SerializeField] private CharacterDatabase characterDatabase;
     [SerializeField] private Transform spawnPos;
+    [SerializeField] private CinemachineCamera cinemachineCamera;
     public Transform SpawnedCharacter { get; private set; }
     public CharacterData SelectedCharacter { get; private set; }
 
@@ -36,6 +38,7 @@ public class SelectedCharacterSpawner : MonoBehaviour
         if (SelectedCharacter.characterPrefab == null) return;
         GameObject characterObj = Instantiate(SelectedCharacter.characterPrefab, spawnPos.position, spawnPos.rotation);
         SpawnedCharacter = characterObj.transform;
+        SetCameraTarget();
     }
 
     public CharacterData GetCharacter() 
@@ -51,5 +54,10 @@ public class SelectedCharacterSpawner : MonoBehaviour
     private void StoreCharacterData() 
     {
         SelectedCharacter = GetCharacter();
+    }
+
+    private void SetCameraTarget() 
+    {
+        cinemachineCamera.Target.TrackingTarget = SpawnedCharacter;
     }
 }

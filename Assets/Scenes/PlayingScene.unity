@@ -2816,6 +2816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCharacterSpawner
   characterDatabase: {fileID: 11400000, guid: 3195192d66791cb46a48a34bfd881017, type: 2}
   spawnPos: {fileID: 589564843}
+  cinemachineCamera: {fileID: 1121289947}
 --- !u!1 &1073787285
 GameObject:
   m_ObjectHideFlags: 0
