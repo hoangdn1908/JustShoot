@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b894487782f29a14cb201c5e897e2bad, type: 3}
+  m_Name: BlueChar
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterData
+  characterId: blue
+  characterIconInShop: {fileID: 21300000, guid: a1c47197d1e06ed4e84ee0164fbf4954, type: 3}
+  price: 10
+  characterIconInGame: {fileID: 21300000, guid: 26534e22a4bf22649a230007acc3629e, type: 3}
+  characterPrefab: {fileID: 8650799468946201614, guid: c06882f063e079349806d60817d5fd58, type: 3}
