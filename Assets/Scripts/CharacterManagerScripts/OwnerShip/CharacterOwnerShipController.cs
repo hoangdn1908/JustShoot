@@ -1,10 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterOwnerShipController : MonoBehaviour
+public static class CharacterOwnerShipController 
 {
     private const string ownedKey = "Owned_";
-    private Dictionary<string, int> keyValuePairs = new Dictionary<string, int>();
 
     public static bool IsOwned(string characterId) 
     {

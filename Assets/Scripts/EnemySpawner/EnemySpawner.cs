@@ -4,10 +4,11 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private ObjectPool[] enemyPools;
     [SerializeField] private Transform spawnPos;
-    [SerializeField] private Transform target; 
 
-    public void Spawn() 
+    public void Spawn()
     {
+        Transform target = SelectedCharacterSpawner.Instance?.SpawnedCharacter;
+        if (target == null) return;
         int index = Random.Range(0, enemyPools.Length);
         EnemyController enemyController = enemyPools[index].GetFromPool().GetComponent<EnemyController>();
         enemyController.PrepareForSpawn(enemyPools[index], target);
