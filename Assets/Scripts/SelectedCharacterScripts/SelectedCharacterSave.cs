@@ -10,7 +10,7 @@ public static class SelectedCharacterSave
         PlayerPrefs.Save();
     }
 
-    public static string GetSelectedCharacterId() 
+    public static string GetSelectedCharacterId()  
     {
         return PlayerPrefs.GetString(SelectedCharacterKey, string.Empty);
     }
