@@ -35,7 +35,6 @@ public class CharacterSelectionPanelUI : MonoBehaviour
         if (isLoadingScene) return;
         isLoadingScene = true;
         SelectedCharacterSave.SetSelectedCharacter(characterData.characterId);
-        Debug.Log("Choose " + characterData.characterId);
         SceneManager.LoadScene(gamePlayScene);
     }
 
