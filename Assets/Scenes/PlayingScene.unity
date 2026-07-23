@@ -2701,6 +2701,9 @@ GameObject:
   m_Component:
   - component: {fileID: 912985466}
   - component: {fileID: 912985465}
+  - component: {fileID: 912985470}
+  - component: {fileID: 912985469}
+  - component: {fileID: 912985468}
   - component: {fileID: 912985467}
   m_Layer: 0
   m_Name: ShootGunIcon
@@ -2792,12 +2795,73 @@ MonoBehaviour:
   m_GameObject: {fileID: 912985464}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf6d8e28f8f45f449cb49746e5db8da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponIconController
+  timeInterval: 10
+--- !u!114 &912985468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912985464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05f805d7a52c17b418285867f68a12c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloatingWeapon
   height: 0.3
   speed: 2
   randomizePhase: 1
+--- !u!114 &912985469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912985464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6de1259a95ebeb4f8e2e4924d22e218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponIconCollision
+--- !u!58 &912985470
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912985464}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 1.1079943, y: 0.023449585}
+  m_Radius: 1.595
 --- !u!1 &946151364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,6 +2999,9 @@ GameObject:
   - component: {fileID: 1058531249}
   - component: {fileID: 1058531248}
   - component: {fileID: 1058531250}
+  - component: {fileID: 1058531251}
+  - component: {fileID: 1058531252}
+  - component: {fileID: 1058531253}
   m_Layer: 0
   m_Name: NormalGunIcon
   m_TagString: Untagged
@@ -3010,7 +3077,7 @@ Transform:
   m_GameObject: {fileID: 1058531247}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0000000021724205, y: -0.0000004731509, z: 0.25881857, w: 0.965926}
-  m_LocalPosition: {x: -14.676816, y: -4.1390853, z: 0}
+  m_LocalPosition: {x: 9.526284, y: 5.499991, z: 0.000010042262}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3031,6 +3098,67 @@ MonoBehaviour:
   height: 0.3
   speed: 2
   randomizePhase: 1
+--- !u!58 &1058531251
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058531247}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.5601336, y: 0.41959092}
+  m_Radius: 1.58625
+--- !u!114 &1058531252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058531247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf6d8e28f8f45f449cb49746e5db8da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponIconController
+  timeInterval: 10
+--- !u!114 &1058531253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058531247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6de1259a95ebeb4f8e2e4924d22e218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponIconCollision
 --- !u!1 &1073787285
 GameObject:
   m_ObjectHideFlags: 0
@@ -4205,6 +4333,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1464115671}
   - component: {fileID: 1464115670}
+  - component: {fileID: 1464115675}
+  - component: {fileID: 1464115674}
+  - component: {fileID: 1464115673}
   - component: {fileID: 1464115672}
   m_Layer: 0
   m_Name: ShortGunIcon
@@ -4296,12 +4427,73 @@ MonoBehaviour:
   m_GameObject: {fileID: 1464115669}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf6d8e28f8f45f449cb49746e5db8da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponIconController
+  timeInterval: 10
+--- !u!114 &1464115673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464115669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05f805d7a52c17b418285867f68a12c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloatingWeapon
   height: 0.3
   speed: 2
   randomizePhase: 1
+--- !u!114 &1464115674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464115669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6de1259a95ebeb4f8e2e4924d22e218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponIconCollision
+--- !u!58 &1464115675
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464115669}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.61680204, y: 0.17187303}
+  m_Radius: 0.955
 --- !u!1 &1489372833
 GameObject:
   m_ObjectHideFlags: 0
