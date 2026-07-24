@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8746681903a4a445ba0d614a11287c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletController
-  timeLive: 12
+  timeLive: 5
   rb: {fileID: 7048206596988050240}
 --- !u!114 &8408737143748221127
 MonoBehaviour:
