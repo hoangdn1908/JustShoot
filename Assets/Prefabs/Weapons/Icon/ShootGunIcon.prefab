@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6de1259a95ebeb4f8e2e4924d22e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponIconCollision
+  weaponId: 2
 --- !u!114 &5332149795859503759
 MonoBehaviour:
   m_ObjectHideFlags: 0

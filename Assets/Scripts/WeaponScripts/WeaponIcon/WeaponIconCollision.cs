@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class WeaponIconCollision : MonoBehaviour
 {
+    [SerializeField] private int weaponId;
     private WeaponIconController weaponIconController;
+    public static Action<int> OnWeaponIconHit;
 
     private void Awake()
     {
@@ -14,6 +17,7 @@ public class WeaponIconCollision : MonoBehaviour
         if (collision.CompareTag("Player")) 
         {
             weaponIconController.ReturnToPool();
+            OnWeaponIconHit?.Invoke(weaponId);
         }
     }
 }
