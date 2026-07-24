@@ -5400,8 +5400,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2120677450}
+  - component: {fileID: 2120677451}
   m_Layer: 0
-  m_Name: WeaponIconController
+  m_Name: WeaponIconSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5425,6 +5426,25 @@ Transform:
   - {fileID: 948899631}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2120677451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120677449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9d894b291799b40974b25a6c4df626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponIconSpawner
+  minDistance: 2
+  maxDistance: 4
+  weaponPools:
+  - {fileID: 879163429}
+  - {fileID: 1636842044}
+  - {fileID: 948899632}
+  timeInterval: 2
 --- !u!1 &2142701818
 GameObject:
   m_ObjectHideFlags: 0

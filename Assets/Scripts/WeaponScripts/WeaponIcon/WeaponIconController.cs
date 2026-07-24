@@ -12,7 +12,7 @@ public class WeaponIconController : MonoBehaviour
         CheckTimeLife();
     }
 
-    private void SetPool(ObjectPool objectPool) 
+    public void SetPool(ObjectPool objectPool) 
     {
         weaponIconPool = objectPool;
     }
@@ -22,13 +22,13 @@ public class WeaponIconController : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= timeInterval) 
         {
+            timer = 0;
             ReturnToPool();
         }
     }
 
     public void ReturnToPool() 
     {
-        //weaponIconPool.ReturnToPool(gameObject);
-        gameObject.SetActive(false);
+        weaponIconPool.ReturnToPool(gameObject);
     }
 }
