@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    [SerializeField] private float timeLife;
+    [SerializeField] private float timeLive;
     [SerializeField] private Rigidbody2D rb;
     private ObjectPool pool;
     private float timer;
@@ -10,7 +10,7 @@ public class BulletController : MonoBehaviour
 
     private void Update()
     {
-        CheckLiveTime();
+        CheckTimeLive();
     }
 
     public void SetSpeed(float speed) 
@@ -28,10 +28,10 @@ public class BulletController : MonoBehaviour
         rb.linearVelocity = direction.normalized * speed;
     }
 
-    private void CheckLiveTime() 
+    private void CheckTimeLive() 
     {
         timer += Time.deltaTime;
-        if (timer >= timeLife) 
+        if (timer >= timeLive) 
         {
             ReturnToPool();
         }

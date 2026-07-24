@@ -9,7 +9,7 @@ public class WeaponIconController : MonoBehaviour
 
     private void Update()
     {
-        CheckTimeLife();
+        CheckTimeLive();
     }
 
     public void SetPool(ObjectPool objectPool) 
@@ -17,7 +17,7 @@ public class WeaponIconController : MonoBehaviour
         weaponIconPool = objectPool;
     }
 
-    private void CheckTimeLife() 
+    private void CheckTimeLive() 
     {
         timer += Time.deltaTime;
         if (timer >= timeInterval) 
