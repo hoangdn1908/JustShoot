@@ -4,17 +4,24 @@ using UnityEngine;
 public class WeaponIconController : MonoBehaviour
 {
     [SerializeField] private float timeInterval;
+    private FloatingWeapon floatingWeapon;
     private ObjectPool weaponIconPool;
     private float timer;
+
+    private void Awake()
+    {
+        floatingWeapon = GetComponent<FloatingWeapon>();
+    }
 
     private void Update()
     {
         CheckTimeLive();
     }
 
-    public void SetPool(ObjectPool objectPool) 
+    public void PrepareForSpawn(ObjectPool objectPool, Vector3 spawnPos) 
     {
         weaponIconPool = objectPool;
+        floatingWeapon.SetSpawnPosition(spawnPos);
     }
 
     private void CheckTimeLive() 

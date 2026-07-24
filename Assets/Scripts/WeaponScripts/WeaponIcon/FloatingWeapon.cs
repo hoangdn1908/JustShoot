@@ -10,7 +10,6 @@ public class FloatingWeapon : MonoBehaviour
 
     private void Awake()
     {
-        SetPosition();
         SetPhase();
     }
 
@@ -19,9 +18,10 @@ public class FloatingWeapon : MonoBehaviour
         Floating();
     }
 
-    private void SetPosition() 
+    public void SetSpawnPosition(Vector3 spawnPosition)
     {
-        startPos = transform.localPosition;
+        transform.position = spawnPosition;
+        startPos = spawnPosition;
     }
 
     private void SetPhase() 

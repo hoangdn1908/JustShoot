@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponIconSpawner : MonoBehaviour
 {
@@ -12,19 +12,19 @@ public class WeaponIconSpawner : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer > timeInterval) 
+        if (timer > timeInterval)
         {
             timer = 0;
             SpawnWeapon();
         }
     }
 
-    private void SetTarget() 
+    private void SetTarget()
     {
         target = SelectedCharacterSpawner.Instance?.SpawnedCharacter;
     }
 
-    private Vector2 GetPosition() 
+    private Vector2 GetPosition()
     {
         SetTarget();
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
@@ -32,11 +32,10 @@ public class WeaponIconSpawner : MonoBehaviour
         return (Vector2)target.position + randomDirection * randomDistance;
     }
 
-    private void SpawnWeapon() 
+    private void SpawnWeapon()
     {
         int index = Random.Range(0, weaponPools.Length);
         WeaponIconController weaponIconObj = weaponPools[index].GetFromPool().GetComponent<WeaponIconController>();
-        weaponIconObj.SetPool(weaponPools[index]);
-        weaponIconObj.transform.position = GetPosition();
+        weaponIconObj.PrepareForSpawn(weaponPools[index], GetPosition());
     }
 }

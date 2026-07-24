@@ -5438,13 +5438,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9d894b291799b40974b25a6c4df626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponIconSpawner
-  minDistance: 2
-  maxDistance: 4
+  minDistance: 10
+  maxDistance: 18
   weaponPools:
   - {fileID: 879163429}
   - {fileID: 1636842044}
   - {fileID: 948899632}
-  timeInterval: 2
+  timeInterval: 1
 --- !u!1 &2142701818
 GameObject:
   m_ObjectHideFlags: 0
