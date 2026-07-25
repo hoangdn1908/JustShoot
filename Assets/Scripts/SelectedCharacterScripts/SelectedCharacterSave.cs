@@ -2,21 +2,24 @@ using UnityEngine;
 
 public static class SelectedCharacterSave 
 {
-    private const string SelectedCharacterKey = "SelectedCharacterId";
 
-    public static void SetSelectedCharacter(string characterId) 
+    public static void SetSelectedCharacter(string characterId)
     {
-        PlayerPrefs.SetString(SelectedCharacterKey, characterId);
-        PlayerPrefs.Save();
+        if (GameSaveManager.Instance == null || GameSaveManager.Instance.Data == null)
+            return;
+        GameSaveManager.Instance.Data.selectedCharacterId = characterId ?? string.Empty;
+        GameSaveManager.Instance.Save();
     }
 
-    public static string GetSelectedCharacterId()  
+    public static string GetSelectedCharacterId()
     {
-        return PlayerPrefs.GetString(SelectedCharacterKey, string.Empty);
+        if (GameSaveManager.Instance == null || GameSaveManager.Instance.Data == null)
+            return string.Empty;
+        return GameSaveManager.Instance.Data.selectedCharacterId ?? string.Empty;
     }
 
     public static bool HasSelectedCharacter() 
     {
-        return PlayerPrefs.HasKey(SelectedCharacterKey);
+        return !string.IsNullOrEmpty(GetSelectedCharacterId());
     }
 }

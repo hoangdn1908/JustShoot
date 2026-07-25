@@ -6,13 +6,13 @@ public class PlayerWalletController : MonoBehaviour
 
     public static event Action<int> OnTotalCoinChanged;
     public static PlayerWalletController Instance { get; private set; }
-    private const string TotalCoinKey = "TotalCoin";
     public int TotalCoin { get; private set; }
 
     private void Awake()
     {
         if (!TryInitializeSingleton()) return;
         LoadCoin();
+
     }
 
     private bool TryInitializeSingleton()
@@ -36,8 +36,10 @@ public class PlayerWalletController : MonoBehaviour
 
     private void SaveCoin()
     {
-        PlayerPrefs.SetInt(TotalCoinKey, TotalCoin);
-        PlayerPrefs.Save();
+        if (GameSaveManager.Instance == null || GameSaveManager.Instance.Data == null)
+            return;
+        GameSaveManager.Instance.Data.totalCoin = TotalCoin;
+        GameSaveManager.Instance.Save();
     }
 
 
@@ -53,7 +55,13 @@ public class PlayerWalletController : MonoBehaviour
 
     private void LoadCoin()
     {
-        TotalCoin = PlayerPrefs.GetInt(TotalCoinKey, 0);
+        if (GameSaveManager.Instance == null || GameSaveManager.Instance.Data == null)
+        {
+            TotalCoin = 0;
+            OnTotalCoinChanged?.Invoke(TotalCoin);
+            return;
+        }
+        TotalCoin = GameSaveManager.Instance.Data.totalCoin;
         OnTotalCoinChanged?.Invoke(TotalCoin);
     }
 }
