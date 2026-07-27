@@ -16,7 +16,7 @@ public class ButtonController : MonoBehaviour
 
     public void ResumeGame()
     {
-        GameManager.Instance.EnterPlayingState();
+        GameManager.Instance.ChangeGameState(GameStates.Playing);
     }
 
     public void ExitGame()

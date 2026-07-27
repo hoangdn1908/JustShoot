@@ -74,11 +74,11 @@ public class GameManager : MonoBehaviour
 
     private void EnterLoseState()
     {
-        CompleteLevel();
-        StartCoroutine(DelayLoseState());
+        TransferLevelCoinsToWallet();
+        StartCoroutine(ShowLoseScreenAfterDelay());
     }
 
-    private IEnumerator DelayLoseState()
+    private IEnumerator ShowLoseScreenAfterDelay()
     {
         Time.timeScale = 1f;
         yield return new WaitForSeconds(0.5f);
@@ -91,11 +91,14 @@ public class GameManager : MonoBehaviour
     #region Handle game state
     private void HandlePauseInput()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ChangeGameState(GameStates.Pause);
-        }
+        if (!Input.GetKeyDown(KeyCode.Escape))
+            return;
+        if (currentState == GameStates.Lose)
+            return;
+        GameStates nextState = currentState == GameStates.Pause ? GameStates.Playing : GameStates.Pause;
+        ChangeGameState(nextState);
     }
+
 
     private void HandleGameLoseState() 
     {
@@ -103,7 +106,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    private void CompleteLevel()
+    private void TransferLevelCoinsToWallet()
     {
         int earnedCoin = LevelCoinManager.Instance.CurrentLevelCoin;
         PlayerWalletController.Instance.AddCoin(earnedCoin);
