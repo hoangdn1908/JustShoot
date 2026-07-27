@@ -21,28 +21,52 @@ public class GunController : MonoBehaviour
 
     public virtual void Fire() { }
 
-    private void HandleInput() 
+    #region Handle fire input
+    private void HandleInput()
     {
         if (gunInput.FireReleased)
         {
-            if (gunAnimation != null)
-                gunAnimation.SetGunAnimation(false);
+            HandleFireReleased();
             return;
         }
+
         if (gunInput.FirePressed)
         {
-            if (gunAnimation != null)
-                gunAnimation.SetGunAnimation(true);
-            if (!gunAmmo.TryConsumeShot()) return;
-            Fire();
-            if (gunAmmo.IsEmpty()) 
-            {
-                if (gunAnimation != null)
-                    gunAnimation.SetGunAnimation(false);
-                gameObject.SetActive(false);
-            }
+            HandleFirePressed();
         }
     }
+
+    private void HandleFirePressed()
+    {
+        if (!gunAmmo.TryConsumeShot())
+            return;
+        SetFireAnimation(true);
+        Fire();
+        if (gunAmmo.IsEmpty())
+        {
+            DeactivateWeapon();
+        }
+    }
+
+    private void HandleFireReleased()
+    {
+        SetFireAnimation(false);
+    }
+
+    private void DeactivateWeapon()
+    {
+        SetFireAnimation(false);
+        gameObject.SetActive(false);
+    }
+
+    private void SetFireAnimation(bool isFiring)
+    {
+        if (gunAnimation != null)
+        {
+            gunAnimation.SetGunAnimation(isFiring);
+        }
+    }
+    #endregion
 
     private void InitializeComponent() 
     {
