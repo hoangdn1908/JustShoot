@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 4840583372742874194}
   - {fileID: 147197494109007281}
   - {fileID: 8326584843968909302}
-  index: 2
+  weaponId: 0
 --- !u!1001 &6486087185825336054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63,10 +63,6 @@ PrefabInstance:
     - target: {fileID: 6343820048156911431, guid: a49fe124e3dfbfe488cd1c15353961bb, type: 3}
       propertyPath: m_Name
       value: Gun2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6343820048156911431, guid: a49fe124e3dfbfe488cd1c15353961bb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9085959287266546509, guid: a49fe124e3dfbfe488cd1c15353961bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -135,10 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun3
       objectReference: {fileID: 0}
-    - target: {fileID: 1212450779208654633, guid: d0005720e2cd25543a0e684821689f98, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2025654212035306569, guid: d0005720e2cd25543a0e684821689f98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.09
@@ -205,10 +197,6 @@ PrefabInstance:
     - target: {fileID: 2868728513494388368, guid: 542cb0935e794bf41aed82df60285ec7, type: 3}
       propertyPath: m_Name
       value: Gun1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2868728513494388368, guid: 542cb0935e794bf41aed82df60285ec7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8927475980669260756, guid: 542cb0935e794bf41aed82df60285ec7, type: 3}
       propertyPath: m_LocalPosition.x

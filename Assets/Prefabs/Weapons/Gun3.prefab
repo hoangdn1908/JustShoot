@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8873095083555986816}
   - component: {fileID: 4392747796698800283}
   - component: {fileID: 963542753434197937}
+  - component: {fileID: -6376098222236778278}
   m_Layer: 0
   m_Name: Gun3
   m_TagString: Untagged
@@ -186,6 +187,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShotgunController
   spreadAngle: 10
+--- !u!114 &-6376098222236778278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212450779208654633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5ee5f24b6d3824aa82cd33cda7b8a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunAmmo
+  maxShots: 2
 --- !u!1 &1661697503249336911
 GameObject:
   m_ObjectHideFlags: 0

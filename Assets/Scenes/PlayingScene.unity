@@ -5444,7 +5444,7 @@ MonoBehaviour:
   - {fileID: 879163429}
   - {fileID: 1636842044}
   - {fileID: 948899632}
-  timeInterval: 6
+  timeInterval: 2
 --- !u!1 &2142701818
 GameObject:
   m_ObjectHideFlags: 0

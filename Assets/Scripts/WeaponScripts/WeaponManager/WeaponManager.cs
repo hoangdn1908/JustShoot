@@ -30,7 +30,10 @@ public class WeaponManager : MonoBehaviour
 
     private void HandleSetActiveWeapon(int index) 
     {
+        if (index < 0 || index >= weapons.Length) return;
         TurnOffWeapons();
+        GunAmmo weaponAmmo = weapons[index].GetComponent<GunAmmo>();
+        weaponAmmo.ResetAmmo();
         weapons[index].SetActive(true);
     }
 }
