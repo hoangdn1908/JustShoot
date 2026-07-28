@@ -301,7 +301,7 @@ MonoBehaviour:
   - {fileID: 16734216668430125}
   - {fileID: 7262681330253881557}
   - {fileID: 6761020141024054045}
-  weaponId: 0
+  weaponId: 1
 --- !u!1001 &2879127049954636221
 PrefabInstance:
   m_ObjectHideFlags: 0
