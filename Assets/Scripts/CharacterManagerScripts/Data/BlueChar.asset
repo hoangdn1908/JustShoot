@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   characterId: blue
   characterIconInShop: {fileID: 21300000, guid: a1c47197d1e06ed4e84ee0164fbf4954, type: 3}
-  price: 10
+  price: 150
   characterIconInGame: {fileID: 21300000, guid: 26534e22a4bf22649a230007acc3629e, type: 3}
   characterPrefab: {fileID: 8650799468946201614, guid: c06882f063e079349806d60817d5fd58, type: 3}
