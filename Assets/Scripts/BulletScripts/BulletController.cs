@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
@@ -7,18 +8,24 @@ public class BulletController : MonoBehaviour
     private ObjectPool pool;
     private float timer;
     private float speed;
+    private BulletCollision bulletCollision;
+
+    private void Awake()
+    {
+        bulletCollision = GetComponent<BulletCollision>();
+    }
 
     private void Update()
     {
         CheckTimeLive();
     }
 
-    public void SetSpeed(float speed) 
+    private void SetSpeed(float speed) 
     {
         this.speed = speed;
     }
 
-    public void SetPool(ObjectPool pool) 
+    private void SetPool(ObjectPool pool) 
     {
         this.pool = pool;
     }
@@ -26,6 +33,13 @@ public class BulletController : MonoBehaviour
     public void Fire(Vector2 direction) 
     {
         rb.linearVelocity = direction.normalized * speed;
+    }
+
+    public void PrepareBeforeShoot(float speed, ObjectPool pool, float damage) 
+    {
+        SetSpeed(speed);
+        SetPool(pool);
+        bulletCollision.SetDamage(damage);
     }
 
     private void CheckTimeLive() 

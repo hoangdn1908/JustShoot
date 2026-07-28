@@ -3,7 +3,12 @@ using UnityEngine;
 public class BulletCollision : MonoBehaviour
 {
     [SerializeField] private BulletController bulletController;
-    [SerializeField] private float damage;
+    private float damage;
+
+    public void SetDamage(float damage) 
+    {
+        this.damage = damage;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

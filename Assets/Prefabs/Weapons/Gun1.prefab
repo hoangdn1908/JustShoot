@@ -171,7 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b0200361d43db4ebe17e84650eb0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunShoot
-  bulletSpeed: 30
+  bulletSpeed: 35
+  bulletDamage: 10
   bulletPool: {fileID: 1617164051677929193}
   firePos: {fileID: 7363452039529868521}
 --- !u!114 &5813182197144212031
