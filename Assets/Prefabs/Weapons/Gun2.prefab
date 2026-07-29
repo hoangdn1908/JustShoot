@@ -61,8 +61,8 @@ GameObject:
   - component: {fileID: 3353190853436079727}
   - component: {fileID: 1879480992188264275}
   - component: {fileID: 5508294600755752230}
-  - component: {fileID: 7208830247812764495}
   - component: {fileID: -3554876491836809076}
+  - component: {fileID: 8432492810477808914}
   m_Layer: 0
   m_Name: Gun2
   m_TagString: Untagged
@@ -221,18 +221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunAnimation
   animator: {fileID: 7592129142716394022}
---- !u!114 &7208830247812764495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6343820048156911431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d5a7e6b7a2567e40a83e745a33df5e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicGunController
 --- !u!114 &-3554876491836809076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +234,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunAmmo
   maxShots: 15
+--- !u!114 &8432492810477808914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6343820048156911431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7cee4aed041b25478829c551faa5a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShortGunController
 --- !u!1 &8292584560161709838
 GameObject:
   m_ObjectHideFlags: 0

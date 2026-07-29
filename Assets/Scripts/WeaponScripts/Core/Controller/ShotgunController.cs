@@ -7,6 +7,7 @@ public class ShotgunController : GunController
     public override void Fire()
     {
         Vector2 dir = GetShootDirection();
+        AudioManager.Instance.PlayShotGunSound();
         ShootBullet(Rotate(dir, -spreadAngle));
         ShootBullet(Rotate(dir, spreadAngle));
     }

@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class BasicGunController : GunController
+public class ShortGunController : GunController
 {
     public override void Fire()
     {
-        AudioManager.Instance.PlayBasicGunSound();
+        AudioManager.Instance.PlayShortGunSound();
         ShootBullet(GetShootDirection());
     }
 }
