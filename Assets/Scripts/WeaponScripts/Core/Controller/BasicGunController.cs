@@ -4,7 +4,6 @@ public class BasicGunController : GunController
 {
     public override void Fire()
     {
-        AudioManager.Instance.PlayBasicGunSound();
         ShootBullet(GetShootDirection());
     }
 }

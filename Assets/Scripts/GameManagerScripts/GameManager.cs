@@ -76,7 +76,6 @@ public class GameManager : MonoBehaviour
     {
         TransferLevelCoinsToWallet();
         StartCoroutine(ShowLoseScreenAfterDelay());
-        AudioManager.Instance.PlayGameOverSound();
     }
 
     private IEnumerator ShowLoseScreenAfterDelay()
