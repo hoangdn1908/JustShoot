@@ -7,7 +7,7 @@ The game combines fast combat with a progression system. Players earn coins by d
 ## Game Links
 
 - **Play on itch.io:** [PLAY GAME](https://hoangdn1908.itch.io/just-shoot)
-- **Gameplay Video:** [WATCH GAME PLAY](https://www.youtube.com/watch?v=--V4peisJfo)
+- **Gameplay Video:** [WATCH GAMEPLAY](https://www.youtube.com/watch?v=--V4peisJfo)
 
 ## My Contributions
 
