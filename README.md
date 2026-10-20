@@ -11,9 +11,9 @@ The game combines fast combat with a progression system. Players earn coins by d
 
 ## My Contributions
 
-I led the game's development, defined its concept, and made the final gameplay and system design decisions.
+Developed this solo personal project, designed the gameplay systems, and made the architectural and design pattern decisions.
 
-The art were created by external creators. [Asset Credits](https://rgsdev.itch.io/free-cc0-modular-animated-vector-characters-2d)
+Third-party art assets were used; see [Asset Credits](https://rgsdev.itch.io/free-cc0-modular-animated-vector-characters-2d).
 
 ## Gameplay Screenshots
 
