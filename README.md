@@ -9,6 +9,12 @@ The game combines fast combat with a progression system. Players earn coins by d
 - **Play on itch.io:** [PLAY GAME](https://hoangdn1908.itch.io/just-shoot)
 - **Gameplay Video:** [WATCH GAME PLAY](https://www.youtube.com/watch?v=--V4peisJfo)
 
+## My Contributions
+
+I led the game's development, defined its concept, and made the final gameplay and system design decisions.
+
+The art were created by external creators. [Asset Credits](https://rgsdev.itch.io/free-cc0-modular-animated-vector-characters-2d)
+
 ## Gameplay Screenshots
 
 ### Gameplay
@@ -73,43 +79,9 @@ The character unlock and selection process works as follows:
 
 This system keeps player progression separate from the UI and gameplay prefabs. The shop, character selection screen, and gameplay scene use `characterId` to identify characters instead of depending on UI card indexes.
 
-### 2. State Machines for Player and Enemy
+**Problem and approach:** Players needed to keep their saved coins and unlocked characters after closing the game. I explored JSON saving as a learning exercise because it was straightforward to implement and easy to read. I implemented save and load functionality so this progress carries over between sessions.
 
-Both the player and enemies use State Machines to organize their behavior. This keeps state logic separate instead of putting all conditions inside one controller.
-
-**Player State Machine**
-
-The player has three states: `PlayerIdleState`, `PlayerWalkState`, and `PlayerDeathState`.
-
-- `PlayerController` reads input in `Update()`, updates the current state, and handles physics movement in `FixedUpdate()`.
-- `PlayerIdleState` stops the Rigidbody, plays the idle animation, and switches to the walk state when the player moves.
-- `PlayerWalkState` calls `PlayerMovement.Move()` using the input and movement speed from `PlayerData`. When there is no movement input, it returns to the idle state.
-- Both idle and walk states check `PlayerHealth`. When health reaches zero, the player enters the death state. This state stops movement, plays the death animation, and disables the player after 0.4 seconds.
-
-**Enemy State Machine**
-
-The enemy has two states: `EnemyChaseState` and `EnemyDeathState`.
-
-- `EnemySpawner` gets an enemy from the pool and calls `EnemyController.PrepareForSpawn()` to reset health, assign the player target, reset the animation, and start the chase state.
-- `EnemyChaseState` moves toward the player using `EnemyMovement.MoveToTarget()` and checks the enemy's health.
-- When the enemy runs out of health, `EnemyDeathState` stops movement, plays the death animation, and returns the object to the pool after 0.35 seconds.
-
-This design keeps the controllers focused on managing components and object lifecycles. Each state handles its own behavior and state changes. Using a similar structure for both the player and enemies also makes the gameplay code more consistent.
-
-### 3. Object Pooling for Enemies, Bullets, and Weapon Pickups
-
-`ObjectPool` creates objects in advance and stores them in a `Queue<GameObject>`. `GetFromPool()` gets an object, activates it, and removes it from the pool. `ReturnToPool()` disables the object and adds it back to the queue for reuse.
-
-Object pooling is used for objects that spawn frequently:
-
-- `EnemySpawner` gets enemies from the pool and resets their data before each spawn.
-- `GunShoot` gets bullets from the weapon's bullet pool.
-- `BulletController` returns bullets to the pool when their lifetime ends or when they hit an enemy.
-- `WeaponIconSpawner` creates weapon pickups from the pool. `WeaponIconController` returns them when their lifetime ends or when the player collects them.
-
-`ObjectPool` uses a `HashSet<GameObject>` to prevent the same object from being returned to the queue more than once. If the queue is empty, the pool creates more objects so gameplay can continue without waiting for an available instance.
-
-### 4. Weapon Component Composition and Polymorphism
+### 2. Weapon Component Composition and Polymorphism
 
 Each weapon prefab uses separate components for different tasks:
 
@@ -128,6 +100,58 @@ Different weapon types change the shooting behavior through inheritance:
 
 When the player collects a weapon icon, `WeaponManager` receives the `weaponId`, disables the other weapons, resets the ammo, and activates the new weapon. New weapon types can reuse the existing components and override `Fire()` to implement different shooting rules.
 
+**Problem and approach:** The three guns share common behavior but use two firing styles: one bullet or two bullets per shot. To keep the code manageable, I split weapon behavior into focused components coordinated by `GunController`. Two subclasses handle the different firing styles while reusing the shared logic.
+
+### 3. State Machines for Player, Enemy, and Game Flow
+
+The player and enemies use separate state classes to organize their behavior, while `GameManager` uses an enum-based state machine to control the game flow.
+
+**Player State Machine**
+
+The player has three states: `PlayerIdleState`, `PlayerWalkState`, and `PlayerDeathState`.
+
+- `PlayerController` reads input in `Update()`, updates the current state, and handles physics movement in `FixedUpdate()`.
+- `PlayerIdleState` stops the Rigidbody, plays the idle animation, and switches to the walk state when the player moves.
+- `PlayerWalkState` calls `PlayerMovement.Move()` using the input and movement speed from `PlayerData`. When there is no movement input, it returns to the idle state.
+- Both idle and walk states check `PlayerHealth`. When health reaches zero, the player enters the death state. This state stops movement, plays the death animation, and disables the player.
+
+**Enemy State Machine**
+
+The enemy has two states: `EnemyChaseState` and `EnemyDeathState`.
+
+- `EnemySpawner` gets an enemy from the pool and calls `EnemyController.PrepareForSpawn()` to reset health, assign the player target, reset the animation, and start the chase state.
+- `EnemyChaseState` moves toward the player using `EnemyMovement.MoveToTarget()` and checks the enemy's health.
+- When the enemy runs out of health, `EnemyDeathState` stops movement, plays the death animation, and returns the object to the pool.
+
+This design keeps the controllers focused on managing components and object lifecycles. Each state handles its own behavior and state changes. Using a similar structure for both the player and enemies also makes the gameplay code more consistent.
+
+**Game Flow State Machine**
+
+`GameManager` manages three states using the `GameStates` enum: `Playing`, `Pause`, and `Lose`.
+
+- `Playing`: Sets `Time.timeScale = 1` and hides the pause and lose panels.
+- `Pause`: Sets `Time.timeScale = 0` and shows the pause panel.
+- `Lose`: Transfers the coins earned during the run to the saved wallet, waits 0.5 seconds using scaled time, then pauses the game and shows the lose panel.
+
+Pressing `Escape` switches between Playing and Pause, unless the game is already in the Lose state. `UiController` only controls panel visibility, while `GameManager` decides when to change the game state.
+
+**Learning goal and approach:** I wanted player behavior, enemy behavior, and game flow to be easier to read, maintain, and switch between. I applied state machines to give each state a clear responsibility and make transitions explicit, such as moving from walking to death or from playing to pause.
+
+### 4. Object Pooling for Enemies, Bullets, and Weapon Pickups
+
+`ObjectPool` creates objects in advance and stores them in a `Queue<GameObject>`. `GetFromPool()` gets an object, activates it, and removes it from the pool. `ReturnToPool()` disables the object and adds it back to the queue for reuse.
+
+Object pooling is used for objects that spawn frequently:
+
+- `EnemySpawner` gets enemies from the pool and resets their data before each spawn.
+- `GunShoot` gets bullets from the weapon's bullet pool.
+- `BulletController` returns bullets to the pool when their lifetime ends or when they hit an enemy.
+- `WeaponIconSpawner` creates weapon pickups from the pool. `WeaponIconController` returns them when their lifetime ends or when the player collects them.
+
+`ObjectPool` uses a `HashSet<GameObject>` to prevent the same object from being returned to the queue more than once. If the queue is empty, the pool creates more objects so gameplay can continue without waiting for an available instance.
+
+**Problem and approach:** Enemies, bullets, and weapon pickups spawn frequently during gameplay. I implemented object pooling to reuse these objects, reducing repeated creation and destruction as they enter and leave play.
+
 ### 5. Data-Driven Gameplay with ScriptableObject
 
 Important gameplay settings are stored in ScriptableObjects. This allows me to change values in the Unity Inspector without changing the main gameplay logic.
@@ -138,6 +162,8 @@ Important gameplay settings are stored in ScriptableObjects. This allows me to c
 - `CharacterDatabase` contains the list of `CharacterData` assets used by the shop and character selection screen.
 
 Enemy prefabs reference `EnemyData`, which is used by `EnemyController` and `EnemyHealth` when enemies spawn. The shop creates character cards from `CharacterDatabase`, while `SelectedCharacterSpawner` uses the same database to find the correct character prefab.
+
+**Learning goal and approach:** I wanted to separate gameplay settings from behavior and make values easier to adjust. I used ScriptableObjects to store basic player, enemy, and character data, allowing me to tune these settings in the Unity Inspector without editing gameplay code.
 
 ### 6. Event-Driven Communication for UI and Economy
 
@@ -152,15 +178,7 @@ Gameplay components raise events when their data changes. UI components subscrib
 
 When the player dies, `GameManager` gets `LevelCoinManager.CurrentLevelCoin`, calls `PlayerWalletController.AddCoin()`, and displays the lose UI. Combat, the coin system, and the UI communicate through events, so the HUD does not need direct references to bullet or enemy controllers.
 
-### 7. Game States for Pause and Lose
-
-`GameManager` manages three states using the `GameStates` enum: `Playing`, `Pause`, and `Lose`.
-
-- `Playing`: Sets `Time.timeScale = 1` and hides the pause and lose panels.
-- `Pause`: Sets `Time.timeScale = 0` and shows the pause panel.
-- `Lose`: Transfers the coins earned during the run to the saved wallet, waits 0.5 seconds using scaled time, then pauses the game and shows the lose panel.
-
-Pressing `Escape` switches between Playing and Pause, unless the game is already in the Lose state. `UiController` only controls panel visibility, while `GameManager` decides when to change the game state.
+**Learning goal and approach:** I wanted gameplay and UI components to depend less on each other. I used events to notify other components when health, ammo, or coins change, reducing direct connections between them. Some direct dependencies remain, so this is an area I still want to improve.
 
 ## Controls
 
